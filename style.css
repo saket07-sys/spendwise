@@ -1,0 +1,133 @@
+:root {
+  --primary-bg: #f7f8fc;
+  --card-bg: #ffffff;
+  --text-main: #333;
+  --income-color: #2ecc71;
+  --expense-color: #e74c3c;
+  --shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+h1{
+    color:aqua;
+}
+
+body {
+  background-color: var(--primary-bg);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+header {
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.header-container h1 {
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+#balance {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+.summary-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 30px;
+}
+
+.card {
+  background-color: var(--card-bg);
+  flex: 1; /* Makes cards take equal width */
+  padding: 20px;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.money {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.money.plus { color: var(--income-color); }
+.money.minus { color: var(--expense-color); }
+.dashboard-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 40px;
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Responsive: Stack them on top of each other on mobile */
+@media (max-width: 600px) {
+  .dashboard-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-control label {
+  display: block;
+  margin: 10px 0;
+  font-weight: 600;
+}
+
+.form-control input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.btn {
+  width: 100%;
+  background-color: #6c5ce7;
+  color: white;
+  border: none;
+  padding: 12px;
+  margin-top: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.btn:hover {
+  transform: scale(1.02);
+}
+.history-section ul {
+  list-style-type: none;
+}
+
+.history-section li {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: var(--shadow);
+  position: relative;
+  border-right: 5px solid #bbb;
+}
+
+/* Green border for income, red for expense */
+.history-section li.plus { border-right-color: var(--income-color); }
+.history-section li.minus { border-right-color: var(--expense-color); }
